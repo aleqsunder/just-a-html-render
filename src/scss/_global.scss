@@ -1,0 +1,50 @@
+body {
+  --mouse-x: 0deg;
+  --mouse-y: 0deg;
+  --mouse-z: 0deg;
+
+  --player-pos-x: 0px;
+  --player-pos-y: 0px;
+  --player-pos-z: 0px;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  background: $background;
+}
+
+layer {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+[name="world"] {
+  transform-style: preserve-3d;
+  perspective: $perspective;
+  perspective-origin: center center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div[type="room"] {
+  height: 200px;
+  transform-style: preserve-3d;
+
+  transform: // Камера
+          translate3d(0px, 0px, var(--camera-distance)) // Поворот камеры
+          rotateX(var(--mouse-x)) rotateY(var(--mouse-y)) rotateZ(var(--mouse-z)) // Позиция камеры
+          translateX(var(--player-pos-x)) translateY(var(--player-pos-y)) translateZ(var(--player-pos-z));
+}
+
+div[type="wall"] {
+  width: 800px;
+  height: 250px;
+  background-color: #eee;
+  position: absolute;
+  background-image: url($textureDefault);
+  background-size: $textureSize;
+  image-rendering: pixelated;
+}

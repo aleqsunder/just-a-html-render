@@ -1,0 +1,8 @@
+@use "sass:math";
+
+$background: #232323;
+
+$perspective: 1200px;
+$halfPerspective: math.div($perspective, 2);
+$textureDefault: "/dist/img/wood.png";
+$textureSize: 50px 50px;
